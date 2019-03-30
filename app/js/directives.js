@@ -33,7 +33,7 @@ angular.module('menu',['ngRoute']).directive('menu', ['$location', function($loc
         templateUrl: '/templates/menu.html',
         replace: true,
         link: function($scope){
-            $scope.list = [
+            var list = [
                 {
                     title: 'Cart',
                     href: '/cart',
@@ -45,7 +45,7 @@ angular.module('menu',['ngRoute']).directive('menu', ['$location', function($loc
                     active: false
                 }
             ];
-            $scope.list = $scope.list.map(function(el){
+            $scope.list = list.map(function(el){
                 if(el.href === $location.path()){
                     el.active = true;
                 }
