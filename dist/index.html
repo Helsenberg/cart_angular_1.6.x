@@ -1,23 +1,29 @@
 
-	<!DOCTYPE html>
-	<html>
-	<head>
-		<meta charset="UTF-8"/>
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no, maximum-scale=1">
-		<meta name="format-detection" content="telephone=no">
-		<title></title>
-		<link rel="stylesheet" href="css/reset.css"/>
-		<link rel="stylesheet" href="css/bundle.min.css"/>
-	
-	</head>
-	
-	<body>
-	
-		<div class="container">
+    <!DOCTYPE html>
+    <html>
+    <head>
+    	<meta charset="UTF-8"/>
+    	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no, maximum-scale=1">
+    	<meta name="format-detection" content="telephone=no">
+    	<title></title>
+    	<link rel="stylesheet" href="css/reset.css"/>
+    	<link rel="stylesheet" href="css/bundle.min.css"/>
+    
+    </head>
+    
+    <body>
+    
+    	<div class="container">
+
+    <div ng-app="App">
+        <ng-view></ng-view>
+    </div>
 
 	
 		</div>
 	    <script src="js/angular.min.js"></script>
+	    <script src="js/angular-sanitize.min.js"></script>
+	    <script src="js/angular-route.min.js"></script>
 	    <script src="js/bundle.min.js"></script>
 	
 	</body>

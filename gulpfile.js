@@ -60,7 +60,7 @@ gulp.task('js', function () {
 });
 
 gulp.task('watch', function () {
-    gulp.watch(['./app/*.html','./app/include/*.html'], ['html']);
+    gulp.watch(['./app/*.html','./app/include/*.html',], ['html']);
     gulp.watch('./app/js/*.js', ['js']);
     gulp.watch('./app/less/*.less', ['less']);
 });
