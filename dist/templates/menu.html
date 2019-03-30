@@ -1,4 +1,6 @@
 <ul class="menu">
-    <li><a href="cart" ng-click="to($event)">Cart</a></li>
-    <li><a href="/" ng-click="to($event)">Catalog</a></li>
+    <li ng-repeat="item in list">
+        <a href="{{item.href}}" ng-click="to($event)" ng-if="!item.active">{{item.title}}</a>
+        <span ng-if="item.active">{{item.title}}</span>
+    </li>
 </ul>

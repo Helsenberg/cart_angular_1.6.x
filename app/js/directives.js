@@ -29,9 +29,28 @@ angular.module('miniBasket',[]).directive('miniBasket', function(){
 angular.module('menu',['ngRoute']).directive('menu', ['$location', function($location){
     return{
         restrict: 'E',
+        scope: true,
         templateUrl: '/templates/menu.html',
         replace: true,
         link: function($scope){
+            $scope.list = [
+                {
+                    title: 'Cart',
+                    href: '/cart',
+                    active: false
+                },
+                {
+                    title: 'Catalog',
+                    href: '/',
+                    active: false
+                }
+            ];
+            $scope.list = $scope.list.map(function(el){
+                if(el.href === $location.path()){
+                    el.active = true;
+                }
+                return el;
+            });
             $scope.to = function(e){
                 e.preventDefault();
                 var path = e.target.getAttribute('href');
