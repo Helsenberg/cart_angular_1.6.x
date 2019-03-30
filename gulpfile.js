@@ -59,8 +59,14 @@ gulp.task('js', function () {
     )
 });
 
+gulp.task('reload', function () {
+    return gulp.src('*')
+        .pipe(connect.reload());
+});
+
 gulp.task('watch', function () {
-    gulp.watch(['./app/*.html','./app/include/*.html',], ['html']);
+    gulp.watch(['./dist/templates/*.html'], ['reload']);
+    gulp.watch(['./app/*.html','./app/include/*.html'], ['html']);
     gulp.watch('./app/js/*.js', ['js']);
     gulp.watch('./app/less/*.less', ['less']);
 });

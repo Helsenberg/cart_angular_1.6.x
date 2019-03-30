@@ -1,5 +1,5 @@
 
-var App = angular.module('App', ['ngSanitize', 'ngRoute', 'cartApp', 'homeApp', 'productsApp']);
+var App = angular.module('App', ['ngSanitize', 'ngRoute', 'cartApp', 'productsApp']);
 
 App.config(['$locationProvider', '$routeProvider',
     function config($locationProvider, $routeProvider) {
@@ -7,13 +7,10 @@ App.config(['$locationProvider', '$routeProvider',
         $routeProvider.when('/cart', {
             templateUrl: 'cart.html',
             controller: 'cartController'
-        }).when('/products', {
+        }).when('/', {
             templateUrl: 'products.html',
             controller: 'productsController'
-        }).when('/', {
-            templateUrl: 'home.html',
-            controller: 'homeController'
-        }).otherwise({redirectTo: '/'});
+        }).otherwise({redirectTo: '/'})
     }
 ]);
 
