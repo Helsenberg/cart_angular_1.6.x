@@ -16,7 +16,17 @@
     	<div class="container">
 
     <div ng-app="App">
-        <ng-view></ng-view>
+        <div class="main">
+            <div class="col-left">
+                <menu></menu>
+            </div>
+            <div class="col-center">
+                <ng-view></ng-view>
+            </div>
+            <div class="col-right">
+                <mini-basket total="total"></mini-basket>
+            </div>
+        </div>
     </div>
 
 	

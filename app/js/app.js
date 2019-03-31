@@ -1,5 +1,5 @@
 
-var App = angular.module('App', ['ngSanitize', 'ngRoute', 'cartApp', 'productsApp']);
+var App = angular.module('App', ['ngSanitize', 'ngRoute', 'cartApp', 'productsApp', 'menu', 'miniBasket']);
 
 App.config(['$locationProvider', '$routeProvider',
     function config($locationProvider, $routeProvider) {

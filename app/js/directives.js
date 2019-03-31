@@ -45,11 +45,20 @@ angular.module('menu',['ngRoute']).directive('menu', ['$location', function($loc
                     active: false
                 }
             ];
-            $scope.list = list.map(function(el){
-                if(el.href === $location.path()){
-                    el.active = true;
-                }
-                return el;
+            $scope.currentUrl = $location.path();
+            $scope.$on('$routeChangeStart', function($event, next) {
+                $scope.currentUrl = next.$$route.originalPath;
+            });
+            $scope.$watch('currentUrl', function(){
+                $scope.list = list.map(function(el){
+                    if(el.href === $location.path()){
+                        el.active = true;
+                    }
+                    else{
+                        el.active = false;
+                    }
+                    return el;
+                });
             });
             $scope.to = function(e){
                 e.preventDefault();
