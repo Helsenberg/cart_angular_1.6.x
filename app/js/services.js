@@ -24,6 +24,7 @@ App.factory('productsService',function(){
 App.factory('cartService', function(){
     var storageKey = 'cart__';
     var products = localStorage.getItem(storageKey) ? JSON.parse(localStorage.getItem(storageKey)) : [];
+    var changed = 0;
     function get(){
         return products.slice();
     };
@@ -75,14 +76,18 @@ App.factory('cartService', function(){
     }
 
     function save(){
+        factory.changed++;
         localStorage.setItem(storageKey, JSON.stringify(products));
     };
 
-    return{
+    var factory = {
+        changed: 0,
         get: get,
         add: add,
         remove: remove,
         getTotalSumm: getTotalSumm,
         changeCount: changeCount
     };
+
+    return factory;
 });

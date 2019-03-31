@@ -12,5 +12,10 @@ App.config(['$locationProvider', '$routeProvider',
             controller: 'productsController'
         }).otherwise({redirectTo: '/'})
     }
-]);
-
+]).controller('appController', ['$scope', 'cartService', function($scope, cartService) {
+    $scope.$watch(function(){
+        return cartService.changed;
+     },function(){
+        $scope.total = cartService.getTotalSumm();
+    })
+}]);
