@@ -1,15 +1,15 @@
 
 var cartApp = angular.module('cartApp', ['ngSanitize', 'productList', 'menu']);
 
-cartApp.controller('cartController', ['$location', '$scope', 'cartService', function($location, $scope, cartService) {
+cartApp.controller('cartController', ['$scope', 'cartService', function($scope, cartService) {
     $scope.list = cartService.get();
-    $scope.total = cartService.getTotalSumm();
     $scope.remove = function(id){
         $scope.list = cartService.remove(id);
-        $scope.total = cartService.getTotalSumm();
-    }
+    };
     $scope.changeCount = function(id, counter){
         $scope.list = cartService.changeCount(id, counter);
+    };
+    $scope.$watch('list', function(){
         $scope.total = cartService.getTotalSumm();
-    }
+    });
 }]);
